@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Potter";
+  src: url("/fonts/Harry Potter.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* --- Intro overlay --- */
+.intro {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.intro-bg {
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 220, 170, 0.18),
+      rgba(0, 0, 0, 0.88) 70%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(120, 70, 40, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(circle at 80% 80%, rgba(120, 70, 40, 0.25), transparent 55%);
+}
+
+/* only mobile */
+@media (min-width: 768px) {
+  #hogwartsIntro {
+    display: none !important;
+  }
+}
+
+/* --- Envelope --- */
+.envelope-wrap {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.envelope {
+  width: 320px;
+  height: 220px;
+  max-width: 92vw;
+  position: relative;
+  transform: translateY(10px);
+  transition: transform 0.35s ease;
+}
+
+.envelope:active {
+  transform: translateY(12px) scale(0.99);
+}
+
+.env-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.22),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #d9c4a0, #c6ab7e);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+/* paper */
+.letter {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  height: 170px;
+  border-radius: 14px;
+  background: linear-gradient(#f7f0d7, #e7d3a3);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(85px);
+  transition: transform 900ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  z-index: 2;
+}
+
+.letter-inner {
+  padding: 18px 16px;
+  color: #2b1b12;
+}
+
+.letter-title {
+  font-size: 34px;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.letter-text {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* flap */
+.env-flap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 120px;
+  background: linear-gradient(135deg, #cfb089, #b89465);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 850ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  z-index: 4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+/* seal */
+.seal {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  left: 50%;
+  top: 92px;
+  transform: translateX(-50%);
+  z-index: 6;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4));
+  transition:
+    transform 650ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 450ms ease;
+}
+
+/* Open state */
+.intro.open .env-flap {
+  transform: rotateX(165deg);
+}
+
+.intro.open .letter {
+  transform: translateY(-10px);
+}
+
+.intro.open .seal {
+  transform: translateX(-50%) translateY(30px) rotate(14deg) scale(0.85);
+  opacity: 0;
+}
+
+/* fade out overlay */
+.intro.fadeout {
+  animation: introFade 600ms ease forwards;
+}
+@keyframes introFade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
