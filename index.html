@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Дівчата рулять! | стендап</title>
+    <title>Чарівний день народження!</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
       rel="stylesheet"
@@ -63,347 +63,356 @@
     <meta property="og:type" content="website" />
   </head>
   <body>
-    <div class="w-full mx-auto">
+    <div
+      class="w-full mx-auto bg-[url('img/antique.webp')] bg-repeat bg-center bg-[length:420px_420px]"
+    >
       <main>
-        <!-- HOGWARTS INTRO (mobile only) -->
-        <div
-          id="hogwartsIntro"
-          class="intro fixed inset-0 z-[9999] flex items-center justify-center"
+        <!-- hero -->
+        <section
+          class="relative mx-auto max-w-4xl h-screen overflow-hidden text-center"
         >
-          <div class="intro-bg absolute inset-0"></div>
+          <!-- Фолбэк-картинка -->
+          <img
+            id="heroFallback"
+            src="img/photo.jpg"
+            class="absolute inset-0 z-0 h-full w-full object-cover object-center"
+            alt=""
+          />
 
-          <button
-            id="openEnvelopeBtn"
-            class="envelope-wrap relative w-[320px] max-w-[92vw]"
-            aria-label="Відкрити лист"
+          <!-- Видео -->
+          <video
+            id="heroVideo"
+            class="absolute inset-0 z-0 h-full w-full object-cover object-center hidden"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="img/photo.jpg"
           >
-            <div class="envelope relative mx-auto">
-              <div class="env-back"></div>
+            <source src="img/hero.mp4" type="video/mp4" />
+          </video>
 
-              <!-- Лист всередині -->
-              <div class="letter">
-                <div class="letter-inner">
-                  <div class="letter-title font-potter">Запрошення</div>
-                  <div class="letter-text font-oswald">
-                    Торкніться печатки, щоб відкрити ✨
-                  </div>
+          <!-- Градиент НАД фоном -->
+          <div
+            class="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/20 to-black/60"
+          ></div>
+
+          <!-- Текст НАД градиентом -->
+          <h1
+            class="absolute bottom-[80px] left-1/2 z-20 w-full -translate-x-1/2 px-4 font-potter text-[58px] leading-none text-[#f4e8c6] drop-shadow-[0_3px_10px_rgba(0,0,0,0.65)]"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            data-aos-delay="2000"
+          >
+            Чарівний День народження
+          </h1>
+
+          <p
+            class="absolute top-[60px] left-1/2 z-20 w-full -translate-x-1/2 px-4 font-oswald text-[20px] uppercase tracking-widest text-[#f4e8c6]"
+          >
+            <span
+              data-aos="fade-in"
+              data-aos-duration="1200"
+              data-aos-delay="1500"
+            >
+              09.02.2026 • 16:00
+            </span>
+            <br />
+            <span
+              class="mt-2 inline-block font-montserrat text-sm font-normal text-[#f4e8c6]"
+            >
+              Одягай мантію — <br />
+              магія починається!
+            </span>
+          </p>
+        </section>
+
+        <!-- music control -->
+        <section class="px-10 pt-12 pb-10">
+          <!-- лёгкое “пергаментное” затемнение/осветление для читаемости -->
+          <div class="">
+            <div
+              class="mx-auto flex w-[320px] items-center justify-center gap-6"
+              data-aos="zoom-in"
+              data-aos-duration="2000"
+              data-aos-delay="0"
+            >
+              <button
+                type="button"
+                class="js-play-music grid h-[54px] w-[54px] place-items-center rounded-full border border-[#3a2a1c] bg-transparent hover:bg-black/5 transition"
+                aria-label="play music"
+              >
+                <img
+                  class="music-icon translate-x-[1px]"
+                  src="img/icons/play.svg"
+                  alt=""
+                  width="26"
+                  height="26"
+                />
+              </button>
+
+              <p
+                class="font-potter text-[30px] uppercase tracking-widest text-[#3a2a1c] leading-[1.2]"
+              >
+                Люмос <br />Мелодікус!
+              </p>
+            </div>
+
+            <p
+              class="mt-4 text-center font-montserrat text-[20px] font-normal text-[#3a2a1c]/80"
+            >
+              Натисни — і нехай магія звучить
+            </p>
+          </div>
+        </section>
+
+        <!-- text -->
+        <section class="px-6 pt-12 pb-10 text-center">
+          <h2
+            class="font-potter text-[44px] text-[#3a2a1c] uppercase drop-shadow leading-[1.2]"
+          >
+            Сова принесла <br />тобі листа
+          </h2>
+          <p class="mt-8 font-montserrat text-[20px] text-[#3a2a1c]/80">
+            Лист запечатано. Відкрити дозволено лише за допомогою натискання.
+          </p>
+
+          <!-- Flip wrapper (perspective) -->
+          <div class="mx-auto mt-8 max-w-3xl [perspective:1200px]">
+            <!-- Card (rotates) -->
+            <button
+              type="button"
+              class="js-flip-card relative w-full aspect-[3/2] rounded-2xl text-left outline-none [transform-style:preserve-3d] transition-transform duration-700 focus-visible:ring-2 focus-visible:ring-[#9a1c13]/60"
+              aria-label="Відкрити лист"
+            >
+              <!-- FRONT -->
+              <div
+                class="absolute inset-0 rounded-2xl border border-black/20 shadow-lg bg-[url('img/letter.webp')] bg-cover bg-center bg-no-repeat p-8 [backface-visibility:hidden]"
+              ></div>
+
+              <!-- BACK -->
+
+              <!-- BACK -->
+              <div
+                class="absolute inset-0 rounded-2xl border border-black/20 shadow-lg bg-[#fff7e7] px-6 sm:px-12 py-6 sm:py-8 flex flex-col justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]"
+              >
+                <p
+                  class="mx-auto text-center font-potter uppercase tracking-widest drop-shadow leading-[1.1] text-[26px] sm:text-[44px] text-[#3a2a1c]"
+                >
+                  Офіційне запрошення
+                </p>
+
+                <div class="mt-4 sm:mt-6 space-y-4 sm:space-y-5">
+                  <p
+                    class="mx-auto max-w-[42ch] font-montserrat leading-relaxed text-[#3a2a1c] text-[14px] sm:text-[20px]"
+                  >
+                    Тебе офіційно запрошено на святкування
+                    <b>6-річчя Артема</b>. Цього дня ми відкриємо двері у світ
+                    магії: розподіл по факультетах, зіллєваріння, чарівні
+                    випробування та солодощі “з магічної крамниці”.
+                  </p>
+
+                  <p
+                    class="mx-auto text-center font-potter uppercase tracking-widest drop-shadow leading-[1.1] text-[20px] sm:text-[34px] text-[#3a2a1c]"
+                  >
+                    «Присягаюсь, що замишляю лише пустощі».
+                  </p>
+
+                  <p
+                    class="mx-auto text-center font-montserrat font-bold text-[#9a1c13] text-[12px] sm:text-[16px]"
+                  >
+                    Натисни ще раз, щоб закрити лист.
+                  </p>
                 </div>
               </div>
-
-              <!-- Клапан -->
-              <div class="env-flap"></div>
-
-              <!-- Печатка (твоя картинка) -->
-              <img class="seal" src="/img/h.png" alt="Печатка" />
-            </div>
-
-            <div
-              class="hint font-oswald text-white/90 text-sm mt-4 text-center"
+            </button>
+            <p
+              class="text-[16px] font-potter text-[35px] text-[#3a2a1c] uppercase drop-shadow leading-[1.2] pt-20"
             >
-              Натисни на печатку
-            </div>
-          </button>
-        </div>
-        <!-- у меня уже было -->
-        <section
-          class="w-full min-h-screen bg-[url('/img/photo.jpg')] lg:bg-[url('/img/desk.jpg')] bg-cover bg-center flex justify-center mx-auto"
-        >
-          <div
-            class="flex flex-col justify-between py-20 items-center lg:items-start"
-          >
-            <!-- Логотип -->
-            <img
-              src="/img/logo.svg"
-              alt="Логотип"
-              class="w-3/4 max-w-xs pt-12 mx-auto"
-            />
-
-            <!-- Заголовок -->
-            <div class="gap-4 flex flex-col px-4">
-              <a
-                href="#booking-form"
-                class="rounded-md font-montserrat bg-black px-8 py-2.5 text-md text-white shadow-sm mx-auto tracking-wide hover:bg-[#9a1c13] transition-colors duration-500"
-                >Забронювати місце</a
-              >
-              <h3
-                class="font-montserrat text-lg text-white text-center font-light tracking-wide"
-              >
-                27.06.2025 | Imo Lounge
-              </h3>
-            </div>
+              Не забудь гарний настрій — це найсильніший оберіг.
+            </p>
           </div>
         </section>
 
         <!-- где -->
-        <section class="bg-gray-100 py-12 px-6 text-center mx-auto">
-          <h2 class="text-4xl font-oswald uppercase font-semibold mb-6">
-            Що на вас чекає?
-          </h2>
-          <p class="text-gray-700 font-montserrat mb-6 max-w-md mx-auto">
-            Це вечір, де кожна з нас згадає, як звучить власний сміх. Без
-            цензури, без упереджень — тільки правда, тепло і сміх. Коли світ
-            горить — ми запалюємо сцену.
-          </p>
-          <p
-            class="font-oswald uppercase font-semibold text-3xl text-[#9a1c13]"
-          >
-            Це більше, ніж стендап.
-          </p>
-        </section>
+        <section class="py-12 px-6 text-center max-w-xl mx-auto">
+          <div class="relative">
+            <h2 class="text-2xl font-potter text-stone-900">
+              Місце проведення
+            </h2>
 
-        <section class="w-full bg-[#130504] py-12 px-6">
-          <h2
-            class="text-4xl font-oswald uppercase font-semibold mb-6 text-[#3d040a] mx-auto text-center"
-          >
-            Ми не пунктуальні,
-            <span
-              class="block text-[#dadada] font-montserrat font-light max-w-xs mx-auto text-3xl -mt-4"
-              >але ось план</span
+            <p
+              class="font-potter uppercase font-semibold text-7xl text-[#9a1c13] mb-4 drop-shadow"
             >
-          </h2>
+              FACTORIA
+            </p>
 
-          <!-- Порожній список — наповнюється з performers.js -->
-          <ul
-            role="list"
-            class="divide-y divide-[#2b0007] flex flex-col items-center justify-center px-4"
-          ></ul>
-        </section>
-
-        <section
-          class="py-12 px-6 text-center bg-[radial-gradient(circle_at_50%_20%,_#c9b08a_0%,_#987a54_40%,_#725841_80%)]"
-        >
-          <div
-            class="max-w-3xl mx-auto bg-[url('/img/antique.jpg')] bg-cover bg-center bg-no-repeat rounded-2xl shadow-xl border border-black/20 p-8 relative overflow-hidden"
-          >
-            <!-- легкий шар для читабельності -->
-            <!-- <div
-              class="absolute inset-0 bg-white/25 mix-blend-overlay pointer-events-none"
-            ></div> -->
-
-            <div class="relative">
-              <h2 class="text-2xl font-potter text-stone-900">
-                Місце проведення
-              </h2>
-
-              <p
-                class="font-potter uppercase font-semibold text-5xl text-[#9a1c13] mb-4 drop-shadow"
-              >
-                FACTORIA
-              </p>
-
-              <p class="text-sm text-stone-800 font-oswald">
-                Розважальний центр
-              </p>
-              <p class="text-sm text-stone-800 mb-4 font-oswald">
-                м. Біла Церква, Сквирське шосе, 230, 3 поверх
-              </p>
-
-              <a
-                href="https://www.google.com/maps/place/%D0%A1%D1%96%D0%BB%D1%8C%D0%BF%D0%BE/@49.8184445,30.0642565,16z/data=!3m1!5s0x40d343c475540c89:0xd202d559199852d6!4m10!1m2!2m1!1z0LwuINCR0ZbQu9CwINCm0LXRgNC60LLQsCwg0KHQutCy0LjRgNGB0YzQutC1INGI0L7RgdC1LCAyMzAsIDMg0L_QvtCy0LXRgNGF!3m6!1s0x40d343c40adcd387:0xf3bd6e6e37c3907b!8m2!3d49.8184442!4d30.0702415!15sCkvQvC4g0JHRltC70LAg0KbQtdGA0LrQstCwLCDQodC60LLQuNGA0YHRjNC60LUg0YjQvtGB0LUsIDIzMCwgMyDQv9C-0LLQtdGA0YVaSSJH0Lwg0LHRltC70LAg0YbQtdGA0LrQstCwINGB0LrQstC40YDRgdGM0LrQtSDRiNC-0YHQtSAyMzAgMyDQv9C-0LLQtdGA0YWSAQtzdXBlcm1hcmtldJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyNVdlRmRUTVhoa1J6RnRWVU14UTJOVVdsQk1XRm96V1c1U05HVkZSUkFC4AEA-gEFCL4CEDY!16s%2Fg%2F11bx1gymbr?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                class="inline-block font-oswald px-6 py-2 rounded-md bg-black/10 text-stone-900 border border-black shadow hover:bg-[#130504] hover:text-[#dadada] transition-colors duration-500"
-              >
-                Відкрити на мапі
-              </a>
-            </div>
+            <p class="text-2xl font-potter text-stone-900">
+              Розважальний центр
+            </p>
+            <p
+              class="mt-5 font-montserrat text-[16px] sm:text-[18px] text-[#3a2a1c]/85 max-w-[34ch] mx-auto leading-relaxed font-bold"
+            >
+              м. Біла Церква, Сквирське шосе, 230
+            </p>
+            <p
+              class="font-montserrat text-[16px] sm:text-[18px] text-[#3a2a1c]/85 max-w-[34ch] mx-auto leading-relaxed mb-6"
+            >
+              Підказка: шукай “портал” на 3 поверсі
+            </p>
+            <a
+              href="https://www.google.com/maps/place/%D0%A1%D1%96%D0%BB%D1%8C%D0%BF%D0%BE/@49.8184445,30.0642565,16z/data=!3m1!5s0x40d343c475540c89:0xd202d559199852d6!4m10!1m2!2m1!1z0LwuINCR0ZbQu9CwINCm0LXRgNC60LLQsCwg0KHQutCy0LjRgNGB0YzQutC1INGI0L7RgdC1LCAyMzAsIDMg0L_QvtCy0LXRgNGF!3m6!1s0x40d343c40adcd387:0xf3bd6e6e37c3907b!8m2!3d49.8184442!4d30.0702415!15sCkvQvC4g0JHRltC70LAg0KbQtdGA0LrQstCwLCDQodC60LLQuNGA0YHRjNC60LUg0YjQvtGB0LUsIDIzMCwgMyDQv9C-0LLQtdGA0YVaSSJH0Lwg0LHRltC70LAg0YbQtdGA0LrQstCwINGB0LrQstC40YDRgdGM0LrQtSDRiNC-0YHQtSAyMzAgMyDQv9C-0LLQtdGA0YWSAQtzdXBlcm1hcmtldJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyNVdlRmRUTVhoa1J6RnRWVU14UTJOVVdsQk1XRm96V1c1U05HVkZSUkFC4AEA-gEFCL4CEDY!16s%2Fg%2F11bx1gymbr?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              class="inline-block font-oswald px-6 py-2 rounded-md bg-black/10 text-stone-900 border border-black shadow hover:bg-[#130504] hover:text-[#dadada] transition-colors duration-500"
+            >
+              Відкрити на мапі
+            </a>
           </div>
         </section>
 
-        <section class="bg-white py-12 px-6 text-center max-w-xl mx-auto">
-          <h2 class="text-3xl font-oswald uppercase font-semibold mb-6">
-            Забронювати місце
-          </h2>
-          <div class="max-w-md mx-auto">
-            <p class="text-gray-600 font-montserrat">
-              Залишилось
-              <span id="seats-left" class="font-bold text-black">70</span>
-              місць.
-            </p>
-            <p class="mb-6 text-gray-600 font-montserrat">
-              Можна забронювати до трьох місць — для себе і тих, хто теж
-              заслуговує на трохи сміху. Квиток коштує
-              <span class="font-bold text-black">10 євро</span> — ми зв’яжемось
-              із вами поштою для оплати. Бронювання дійсне після оплати.
-            </p>
-          </div>
-
-          <form
-            id="booking-form"
-            class="space-y-4"
-            id="booking-form"
-            novalidate
+        <!-- form -->
+        <section class="px-8 pt-14 pb-14 text-center max-w-xl mx-auto">
+          <h2
+            class="font-potter text-[46px] text-[#3a2a1c] uppercase drop-shadow leading-[1.1]"
           >
-            <!-- Ім’я -->
-            <div>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Ваше ім’я"
-                required
-                class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-              />
-              <small id="error-name" class="text-red-500 text-sm hidden"
-                >Введіть ім’я</small
+            Підтвердження <br />участі
+          </h2>
+
+          <p
+            class="mt-5 font-montserrat text-[16px] sm:text-[18px] text-[#3a2a1c]/85 max-w-[34ch] mx-auto leading-relaxed"
+          >
+            Підтверди, будь ласка, чи зможеш прийти
+            <span class="font-semibold"
+              >(щоб ми підготували магічні набори)</span
+            >.
+          </p>
+
+          <form id="rsvpForm" class="mt-8 mx-auto max-w-xl text-left space-y-4">
+            <div class="pt-1 space-y-3">
+              <label
+                class="flex items-center gap-3 font-montserrat text-[16px] text-[#3a2a1c]"
               >
+                <input
+                  class="h-5 w-5 accent-[#3a2a1c]"
+                  type="radio"
+                  name="presence"
+                  value="yes"
+                  required
+                />
+                Я прийду і буду чаклувати разом з вами!
+              </label>
+
+              <label
+                class="flex items-center gap-3 font-montserrat text-[16px] text-[#3a2a1c]"
+              >
+                <input
+                  class="h-5 w-5 accent-[#3a2a1c]"
+                  type="radio"
+                  name="presence"
+                  value="no"
+                  required
+                />
+                На жаль, не зможу
+              </label>
             </div>
 
-            <!-- Телефон -->
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="Телефон"
-                required
-                class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-              />
-              <small id="error-phone" class="text-red-500 text-sm hidden"
-                >Невірний номер</small
-              >
-            </div>
-
-            <!-- Email -->
-            <div>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email"
-                required
-                class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-              />
-              <small id="error-email" class="text-red-500 text-sm hidden"
-                >Некоректна адреса</small
-              >
-            </div>
-
-            <!-- Скільки місць -->
-            <fieldset>
-              <legend
-                id="seats-legend"
-                class="text-gray-600 font-montserrat mb-2"
-              >
-                Скільки місць?
-              </legend>
-              <div
-                class="flex flex-wrap justify-center gap-2 text-gray-700 font-montserrat items-center"
-              >
-                <label class="flex items-center gap-2">
-                  <input type="radio" name="seats" value="1" required />1 місце
-                </label>
-                <label class="flex items-center gap-2">
-                  <input type="radio" name="seats" value="2" required />2 (я +1)
-                </label>
-                <label class="flex items-center gap-2">
-                  <input type="radio" name="seats" value="3" required />3 (я +2)
-                </label>
-              </div>
-            </fieldset>
+            <p
+              class="pt-2 text-center font-montserrat text-[16px] text-[#3a2a1c]/75 pb-12"
+            >
+              Якщо обереш “Я прийду” — після відправки відкриється посилання,
+              щоб <span class="font-semibold">додатися в групу події</span> у
+              Telegram.
+            </p>
 
             <button
+              id="rsvpBtn"
+              class="mt-2 h-12 w-full rounded-md border-2 border-[#2a2018] bg-[#2a2018] font-oswald text-[15px] uppercase tracking-widest text-[#f6f0e3] hover:bg-[#130504] transition disabled:opacity-60"
               type="submit"
-              class="w-full bg-black text-white py-2 rounded-md hover:bg-[#9a1c13] font-montserrat transition"
             >
-              Надіслати заявку
+              Відправити
             </button>
-
-            <p
-              id="booking-success"
-              class="text-green-600 font-montserrat mt-4 hidden"
-            >
-              Дякуємо! Заявка прийнята. Чекайте від нас листа ❤️
-            </p>
-            <p
-              id="fully-booked-msg"
-              class="text-red-600 font-montserrat mt-4 hidden"
-            >
-              На жаль, всі місця вже заброньовані. Пощастить наступного разу!
-            </p>
           </form>
 
           <p
-            class="font-oswald uppercase font-semibold text-lg text-[#9a1c13] mt-10"
+            class="font-potter text-[46px] text-[#3a2a1c] uppercase drop-shadow leading-[1.1] pt-12"
           >
-            Забронюйте — і приходьте за настроєм!
+            До зустрічі у світі магії!
           </p>
         </section>
 
-        <section
-          class="w-full h-80 bg-[url('/img/sit.jpg')] bg-contain bg-center bg-no-repeat bg-black flex justify-center mx-auto"
+        <section class="relative mx-auto max-w-4xl overflow-hidden">
+          <img
+            src="img/photo.webp"
+            alt=""
+            class="block w-full h-auto object-contain"
+          />
+
+          <!-- градиент поверх картинки -->
+          <div
+            class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/60"
+          ></div>
+        </section>
+        <!-- MODAL: "Як шкода" -->
+        <div
+          id="sadModal"
+          class="fixed inset-0 z-[999] hidden items-center justify-center px-6"
           aria-hidden="true"
-        ></section>
+        >
+          <div id="sadOverlay" class="absolute inset-0 bg-black/60"></div>
+
+          <div
+            class="relative w-full max-w-md rounded-2xl bg-[#fff7e7] border border-black/15 shadow-2xl px-6 text-center py-10"
+          >
+            <p
+              class="font-potter text-[34px] text-[#3a2a1c] uppercase drop-shadow leading-[1.1]"
+            >
+              Як шкода!
+            </p>
+
+            <p
+              class="mt-4 font-montserrat text-[20px] leading-relaxed text-[#3a2a1c]/85"
+            >
+              Нам дуже прикро, що ти не зможеш бути з нами. Нехай магія цього
+              дня все одно торкнеться тебе!
+            </p>
+
+            <button
+              id="sadClose"
+              type="button"
+              class="mt-6 inline-flex items-center justify-center px-6 py-2 rounded-md border border-[#2a2018] bg-transparent font-oswald uppercase tracking-widest text-[#2a2018] hover:bg-[#2a2018] hover:text-[#f6f0e3] transition"
+            >
+              Закрити
+            </button>
+          </div>
+        </div>
       </main>
-      <footer class="bg-black pb-12 text-center text-white px-6">
+      <footer class="bg-[#080802] pb-12 text-center text-white px-6">
         <div class="max-w-md mx-auto">
-          <p class="font-montserrat mb-2 font-light">
-            Ділися враженнями у соцмережах з хештегом
-            <span class="text-[#9a1c13]">#divchata_ruliat</span> — хай світ
-            знає, як ми сміємось 💥
-          </p>
           <p class="pt-12 text-center text-gray-500 font-light">
             Залишились питання? Напишіть
             <a
               href="https://www.facebook.com/opuzikova"
               target="_blank"
               class="text-white font-regular hover:text-[#9a1c13] focus:text-[#9a1c13] transition duration-300"
-              >Оксані Пузіковій</a
+              >мамі Інні</a
             >
 
-            <!-- <a
-              href="tel:+37200000000"
-              class="hover:text-[#9a1c13] transition duration-300"
-              >+37 2Х ХХ ХХ ХХ</a
-            > -->
             <a
-              href="https://www.facebook.com/tenison.olga/"
+              href="https://www.instagram.com/olga_tenison/"
               target="_blank"
               class="block text-white text-center pt-2 text-sm font-montserrat hover:text-[#9a1c13] focus:text-[#9a1c13] transition duration-300"
             >
-              Дизайн і розробка — Ольга Тенісон, 2025 ©
+              Створено з любов’ю та дрібкою чаклунства — Ольга Тенісон, 2026 ©
             </a>
           </p>
         </div>
       </footer>
     </div>
 
-    <script>
-      (function () {
-        const intro = document.getElementById("hogwartsIntro");
-        const btn = document.getElementById("openEnvelopeBtn");
-
-        // якщо хочеш показувати інтро тільки 1 раз:
-        // if (localStorage.getItem("hogwartsIntroDone") === "1") {
-        //   intro?.remove();
-        //   return;
-        // }
-
-        // блокуємо скрол під інтро
-        document.documentElement.style.overflow = "hidden";
-        document.body.style.overflow = "hidden";
-
-        btn?.addEventListener("click", () => {
-          if (!intro) return;
-
-          intro.classList.add("open");
-
-          // після анімації - ховаємо інтро і відкриваємо сторінку
-          setTimeout(() => {
-            intro.classList.add("fadeout");
-            document.documentElement.style.overflow = "";
-            document.body.style.overflow = "";
-
-            // localStorage.setItem("hogwartsIntroDone", "1");
-
-            // прибрати з DOM після fade
-            setTimeout(() => intro.remove(), 650);
-          }, 1050);
-        });
-      })();
-    </script>
-    <!-- 
-    <script type="module" src="js/firebase-init.js"></script>
-    <script type="module" src="js/performers.js"></script>
-    <script type="module" src="js/form.js"></script> -->
+    <script defer src="js/hero-video.js"></script>
+    <script defer src="js/music.js"></script>
+    <script defer src="js/flip-letter.js"></script>
+    <script defer src="js/rsvp.js"></script>
   </body>
 </html>
